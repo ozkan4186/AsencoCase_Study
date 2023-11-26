@@ -6,8 +6,6 @@ const BarChart = ({ data, colors }) => {
   const chartRef = useRef(null);
 
   useEffect(() => {
-  
- 
     if (chartRef.current) {
       const ctx = chartRef.current.getContext("2d");
 
@@ -16,9 +14,6 @@ const BarChart = ({ data, colors }) => {
         data: colors.map((_, i) => item[`channel${i}`]),
         backgroundColor: colors,
       }));
-
-  
-
 
       const existingChart = Chart.getChart(ctx);
       if (existingChart) {
