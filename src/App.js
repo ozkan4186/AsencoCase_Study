@@ -60,9 +60,9 @@ const App = () => {
     }
   };
 
-  useEffect(() => {
-    // Burada randomData'nın güncellenmesi ve gerekirse işlemler yapılabilir
-  }, [randomData]);
+ 
+
+ 
 
   return (
     <div className="container">
