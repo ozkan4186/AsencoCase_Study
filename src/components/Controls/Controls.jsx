@@ -1,7 +1,14 @@
-import React, { useState, useEffect } from "react";
-import generateRandomNumbers from "../utils/randomGenerator";
+// Controls.js
 
-const Controls = ({ onGenerateStart, onGenerateStop }) => {
+import React, { useState } from "react";
+import "../Controls/control.css"; // Ekledik
+
+const Controls = ({
+  onGenerateStart,
+  onGenerateStop,
+  onSaveData,
+  onLoadData,
+}) => {
   const [isGenerating, setIsGenerating] = useState(false);
 
   const handleStart = () => {
@@ -14,14 +21,24 @@ const Controls = ({ onGenerateStart, onGenerateStop }) => {
     onGenerateStop();
   };
 
+  const handleSave = () => {
+    onSaveData();
+  };
+
+  const handleLoad = () => {
+    onLoadData();
+  };
+
   return (
-    <div>
+    <div className="controls-container">
       <button onClick={handleStart} disabled={isGenerating}>
         Başlat
       </button>
       <button onClick={handleStop} disabled={!isGenerating}>
         Durdur
       </button>
+      <button onClick={handleSave}>Kaydet</button>
+      <button onClick={handleLoad}>Yükle</button>
     </div>
   );
 };

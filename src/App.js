@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import generateRandomNumbers from "./utils/randomGenerator";
-import BarChart from "./components/BarChart";
-import Controls from "./components/Controls";
+import BarChart from "./components/BarChart/BarChart";
+import Controls from "./components/Controls/Controls";
 
 const App = () => {
   const [channelCount, setChannelCount] = useState(2);

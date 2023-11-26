@@ -1,0 +1,17 @@
+/* barChart.css */
+
+/* barChart.css */
+
+#barChart {
+  max-width: 100%;
+  margin: auto;
+  display: block;
+  width: 80vw; /* Genişlik 80 viewport width olarak ayarlandı */
+  height: auto; /* Yükseklik otomatik ayarlandı */
+}
+
+@media screen and (max-width: 600px) {
+  #barChart {
+    width: 80%;
+  }
+}

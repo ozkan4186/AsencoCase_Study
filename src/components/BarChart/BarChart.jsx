@@ -1,7 +1,9 @@
+// BarChart.js
+
 import React, { useEffect, useRef } from "react";
 import Chart from "chart.js/auto";
+import "../BarChart/barChart.css"; // Ekledik
 
-// Chart.js
 const BarChart = ({ data, colors }) => {
   const chartRef = useRef(null);
 
@@ -9,10 +11,10 @@ const BarChart = ({ data, colors }) => {
     if (chartRef.current) {
       const ctx = chartRef.current.getContext("2d");
 
-      const formattedData = data.map((item) => ({
+      const formattedData = data.map((item, index) => ({
         label: item.index.toString(),
         data: colors.map((_, i) => item[`channel${i}`]),
-        backgroundColor: colors,
+        backgroundColor: colors[index],
       }));
 
       const existingChart = Chart.getChart(ctx);
@@ -28,8 +30,8 @@ const BarChart = ({ data, colors }) => {
         },
         options: {
           scales: {
-            x: { stacked: true },
-            y: { stacked: true },
+            xAxis: { stacked: true },
+            yAxis: { stacked: true },
           },
         },
       });
@@ -38,4 +40,5 @@ const BarChart = ({ data, colors }) => {
 
   return <canvas id="barChart" ref={chartRef} />;
 };
+
 export default BarChart;
