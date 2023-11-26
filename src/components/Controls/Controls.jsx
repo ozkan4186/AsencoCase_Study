@@ -1,7 +1,6 @@
-// Controls.js
 
 import React, { useState } from "react";
-import "../Controls/control.css"; // Ekledik
+import "../Controls/control.css"; 
 
 const Controls = ({
   onGenerateStart,

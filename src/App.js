@@ -7,21 +7,13 @@ import "./App.css";
 const App = () => {
   const [channelCount, setChannelCount] = useState(2);
   const [randomData, setRandomData] = useState([]);
-  const [chartColors, setChartColors] = useState([
-    "#0088FE",
-    "#00C49F",
-    "#FFBB28",
-    "#FF8042",
-  ]);
+  const [chartColors, setChartColors] = useState(["#0088FE","#00C49F","#FFBB28","#FF8042",]);
   const [isGenerating, setIsGenerating] = useState(false);
   const [intervalTime, setIntervalTime] = useState(1000);
   const [numberRange, setNumberRange] = useState(10);
 
   const handleGenerateStart = () => {
-    const { channels, stopGenerating } = generateRandomNumbers(
-      channelCount,
-      intervalTime,
-      numberRange
+    const { channels, stopGenerating } = generateRandomNumbers(channelCount,intervalTime,numberRange
     );
 
     // Eğer veri yüklendiyse, mevcut veri setini koru ve yeni veri setini ekle

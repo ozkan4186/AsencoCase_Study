@@ -5,27 +5,28 @@ body {
   background-color: #f4f4f4;
   color: #333;
   margin: 0;
+  font-size: 16px; 
 }
 
 .container {
-  max-width: 800px;
+  max-width: 50rem; 
   margin: auto;
-  padding: 20px;
+  padding: 1.25rem; 
 }
 
 label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 0.3125rem;
   font-weight: bold;
 }
 
 input {
-  padding: 10px;
-  margin-bottom: 15px;
+  padding: 0.625rem; 
+  margin-bottom: 0.9375rem; 
   width: 100%;
   box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 0.0625rem solid #ccc; 
+  border-radius: 0.25rem;
   transition: border-color 0.3s ease-in-out;
 }
 
@@ -40,17 +41,17 @@ input:hover {
 
 /* Mobil cihazlara uyumlu responsive tasarım */
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 37.5rem) { 
   input {
-    width: calc(100% - 20px);
-    margin-right: 10px;
+    width: calc(100% - 1.25rem); 
+    margin-right: 0.625rem; 
   }
 
   label {
-    font-size: 14px;
+    font-size: 0.875rem; 
   }
 
   .container {
-    padding: 10px;
+    padding: 0.625rem; 
   }
 }
