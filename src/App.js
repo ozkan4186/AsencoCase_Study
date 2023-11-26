@@ -7,38 +7,32 @@ import "./App.css";
 const App = () => {
   const [channelCount, setChannelCount] = useState(2);
   const [randomData, setRandomData] = useState([]);
-  const [chartColors, setChartColors] = useState(["#0088FE","#00C49F","#FFBB28","#FF8042",]);
+  const [chartColors, setChartColors] = useState([
+    "#0088FE",
+    "#00C49F",
+    "#FFBB28",
+    "#FF8042",
+  ]);
   const [isGenerating, setIsGenerating] = useState(false);
   const [intervalTime, setIntervalTime] = useState(1000);
   const [numberRange, setNumberRange] = useState(10);
 
   const handleGenerateStart = () => {
-    const { channels, stopGenerating } = generateRandomNumbers(channelCount,intervalTime,numberRange
+    const { channels, stopGenerating } = generateRandomNumbers(
+      channelCount,
+      intervalTime,
+      numberRange
     );
-
-    // Eğer veri yüklendiyse, mevcut veri setini koru ve yeni veri setini ekle
-    if (randomData.length > 0) {
-      const formattedData = channels[0].map((_, index) => {
-        const dataPoint = { index };
-        channels.forEach((channel, i) => {
-          dataPoint[`channel${i}`] = channel[index];
-        });
-        return dataPoint;
+    const formattedData = channels[0].map((_, index) => {
+      const dataPoint = { index };
+      channels.forEach((channel, i) => {
+        dataPoint[`channel${i}`] = channel[index];
       });
+      return dataPoint;
+    });
 
-      setRandomData([...randomData, ...formattedData]);
-    } else {
-      // Veri daha önce yüklenmemişse direkt olarak atama yap
-      const formattedData = channels[0].map((_, index) => {
-        const dataPoint = { index };
-        channels.forEach((channel, i) => {
-          dataPoint[`channel${i}`] = channel[index];
-        });
-        return dataPoint;
-      });
-
-      setRandomData(formattedData);
-    }
+    // Eski verileri koruyarak yeni verileri ekleyin
+    setRandomData((prevData) => [...prevData, ...formattedData]);
 
     setIsGenerating(true);
 
