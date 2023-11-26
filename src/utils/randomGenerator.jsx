@@ -6,7 +6,7 @@ const generateRandomNumbers = (channelCount, intervalTime, numberRange) => {
       Math.floor(Math.random() * (numberRange + 1))
     )
   );
-
+console.log(channels);
   const stopGenerating = () => {
     // clearInterval ile zamanlayıcıyı temizle
     clearInterval(intervalId);

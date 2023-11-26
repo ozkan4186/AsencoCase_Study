@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import generateRandomNumbers from "./utils/randomGenerator";
 import BarChart from "./components/BarChart/BarChart";
 import Controls from "./components/Controls/Controls";
+import "./App.css";
 
 const App = () => {
   const [channelCount, setChannelCount] = useState(2);
@@ -22,15 +23,31 @@ const App = () => {
       intervalTime,
       numberRange
     );
-    const formattedData = channels[0].map((_, index) => {
-      const dataPoint = { index };
-      channels.forEach((channel, i) => {
-        dataPoint[`channel${i}`] = channel[index];
-      });
-      return dataPoint;
-    });
 
-    setRandomData(formattedData);
+    // Eğer veri yüklendiyse, mevcut veri setini koru ve yeni veri setini ekle
+    if (randomData.length > 0) {
+      const formattedData = channels[0].map((_, index) => {
+        const dataPoint = { index };
+        channels.forEach((channel, i) => {
+          dataPoint[`channel${i}`] = channel[index];
+        });
+        return dataPoint;
+      });
+
+      setRandomData([...randomData, ...formattedData]);
+    } else {
+      // Veri daha önce yüklenmemişse direkt olarak atama yap
+      const formattedData = channels[0].map((_, index) => {
+        const dataPoint = { index };
+        channels.forEach((channel, i) => {
+          dataPoint[`channel${i}`] = channel[index];
+        });
+        return dataPoint;
+      });
+
+      setRandomData(formattedData);
+    }
+
     setIsGenerating(true);
 
     // Component unmount edildiğinde üretimi durdur
@@ -62,7 +79,7 @@ const App = () => {
   }, [randomData]);
 
   return (
-    <div>
+    <div className="container">
       <label>Channel Count:</label>
       <input
         type="number"
