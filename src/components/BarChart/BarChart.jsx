@@ -19,14 +19,14 @@ const BarChart = ({ data, colors }) => {
       }));
 
       if (!chartInstance.current) {
-        // İlk render'da chart örneği oluşturulur
+     
         chartInstance.current = new Chart(ctx, {
           type: "bar",
           data: {
             labels: formattedData.map((item) => item.label),
             datasets: formattedData.map((item, index) => ({
               label: item.label,
-              data: item.data,
+              data: [item.data[0]], 
               backgroundColor: item.backgroundColor,
             })),
           },
@@ -38,8 +38,9 @@ const BarChart = ({ data, colors }) => {
           },
         });
       } else {
-        // Mevcut chart örneğine yeni bir çubuk eklenir
+   
         chartInstance.current.data.labels.push(formattedData[0].label);
+
         formattedData.forEach((item, index) => {
           if (!chartInstance.current.data.datasets[index]) {
             chartInstance.current.data.datasets[index] = {
@@ -51,7 +52,7 @@ const BarChart = ({ data, colors }) => {
           chartInstance.current.data.datasets[index].data.push(item.data[0]);
         });
 
-        // Chart güncellenir
+   
         chartInstance.current.update();
       }
     }

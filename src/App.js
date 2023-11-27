@@ -31,12 +31,12 @@ const App = () => {
       return dataPoint;
     });
 
-    // Eski verileri koruyarak yeni verileri ekleyin
+
     setRandomData((prevData) => [...prevData, ...formattedData]);
 
     setIsGenerating(true);
 
-    // Component unmount edildiğinde üretimi durdur
+    
     return () => {
       stopGenerating();
       setIsGenerating(false);
@@ -48,12 +48,12 @@ const App = () => {
   };
 
   const handleSaveData = () => {
-    // Local Storage veya başka bir yöntem kullanarak verileri kaydet
+   
     localStorage.setItem("randomData", JSON.stringify(randomData));
   };
 
   const handleLoadData = () => {
-    // Local Storage veya başka bir yöntem kullanarak verileri yükle
+ 
     const savedData = localStorage.getItem("randomData");
     if (savedData) {
       setRandomData(JSON.parse(savedData));
@@ -61,7 +61,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    // Burada randomData'nın güncellenmesi ve gerekirse işlemler yapılabilir
+  
   }, [randomData]);
 
   return (

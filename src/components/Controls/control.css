@@ -1,4 +1,4 @@
-/* controls.css */
+
 
 .controls-container {
   display: flex;
@@ -15,26 +15,25 @@
 }
 
 .controls-container button:nth-child(1) {
-  background-color: #4caf50; /* Yeşil renk */
+  background-color: #4caf50; 
   color: white;
 }
 
 .controls-container button:nth-child(2) {
-  background-color: #f44336; /* Kırmızı renk */
+  background-color: #f44336;
   color: white;
 }
 
 .controls-container button:nth-child(3) {
-  background-color: #008CBA; /* Mavi renk */
+  background-color: #008CBA; 
   color: white;
 }
 
 .controls-container button:nth-child(4) {
-  background-color: #ff9800; /* Turuncu renk */
+  background-color: #ff9800; 
   color: white;
 }
 
-/* Eğer responsive bir tasarım yapmak istiyorsanız, media query ekleyebilirsiniz */
 
 @media screen and (max-width: 600px) {
   .controls-container {
