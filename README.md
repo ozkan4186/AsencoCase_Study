@@ -49,6 +49,7 @@ Channel Colors, Number Indicators, Horizontal Scrolling and Vertical Scaling:
 Unique colors for each channel.
 ✔✔✔✔✔✔✔✔✔✔
 There are unique colors for the number arrays produced at each Chanell.
+![soncase](https://github.com/ozkan4186/AsencoCase_Study/assets/109352349/331d2773-1ab0-4ea2-a771-4077cfd5b222)
 
 Horizontal scrolling and vertical scaling should be added to better visualize the number indicator and bars.
 👍👍👍👍👍👍👍👍Horizontal and vertical images were created by loading the Chart.js library.
